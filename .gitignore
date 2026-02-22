@@ -1,0 +1,20 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Local runtime config (user-specific)
+**/launcher-config.json

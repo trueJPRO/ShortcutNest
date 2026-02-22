@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortcutNest", "ShortcutNest.csproj", "{CD8DA458-3993-5234-451F-36905579A00C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD8DA458-3993-5234-451F-36905579A00C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8DA458-3993-5234-451F-36905579A00C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8DA458-3993-5234-451F-36905579A00C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8DA458-3993-5234-451F-36905579A00C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D4BFD92-980B-4C61-B68A-9283298FEE77}
+	EndGlobalSection
+EndGlobal

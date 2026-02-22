@@ -1,0 +1,33 @@
+{
+    "Slots": [
+        {
+            "Title": "Terminal",
+            "Type": "app",
+            "Target": "wt.exe",
+            "IconPath": "icons\\terminal.png"
+        },
+        {
+            "Title": "Explorer",
+            "Type": "app",
+            "Target": "explorer.exe",
+            "IconPath": "icons\\explorer.png"
+        },
+        {
+            "Title": "Browser",
+            "Type": "url",
+            "Target": "https://google.com",
+            "IconPath": "icons\\browser.png"
+        },
+        {
+            "Title": "Notes",
+            "Type": "app",
+            "Target": "notepad.exe",
+            "IconPath": "icons\\notes.png"
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+    ]
+}
