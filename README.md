@@ -249,6 +249,7 @@ Created by **João Oliveira**.
 
 ## License
 
-MIT License — Copyright (c) 2025 João Oliveira
+BSD 3-Clause License — Copyright (c) 2026 João Oliveira
+
 
 See the [LICENSE](LICENSE) file for full text.
