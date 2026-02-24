@@ -71,6 +71,10 @@ namespace ShortcutNest
                 ApplyRoundedRegionToForm();
                 Focus();
                 SelectSlot(0);
+
+                // Force the popup to the top by toggling TopMost
+                this.TopMost = false;
+                this.TopMost = true;
             };
         }
 
