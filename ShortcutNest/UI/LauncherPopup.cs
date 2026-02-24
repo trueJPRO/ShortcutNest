@@ -62,7 +62,7 @@ namespace ShortcutNest
             RebuildButtons();
 
             // Esta linha é a versão antiga que fechava ao clicar fora/perder foco
-            Deactivate += (_, __) => HidePopup();
+            // Deactivate += (_, __) => HidePopup();
 
             KeyDown += LauncherPopup_KeyDown;
 
@@ -71,6 +71,10 @@ namespace ShortcutNest
                 ApplyRoundedRegionToForm();
                 Focus();
                 SelectSlot(0);
+
+                // Force the popup to the top by toggling TopMost
+                this.TopMost = false;
+                this.TopMost = true;
             };
         }
 
@@ -131,7 +135,8 @@ namespace ShortcutNest
                 BackColor = _slotBg,
                 Cursor = Cursors.Hand,
                 Dock = DockStyle.Fill,
-                Tag = index
+                Tag = index,
+                TabStop = false
             };
 
             panel.Paint += (s, e) => PaintSlotPanel(s, e);
@@ -177,7 +182,8 @@ namespace ShortcutNest
                 RowCount = 2,
                 BackColor = Color.Transparent,
                 Padding = new Padding(10),
-                Margin = new Padding(0)
+                Margin = new Padding(0),
+                TabStop = false
             };
             layout.RowStyles.Add(new RowStyle(SizeType.Percent, 58f));
             layout.RowStyles.Add(new RowStyle(SizeType.Percent, 42f));
@@ -187,7 +193,8 @@ namespace ShortcutNest
                 Dock = DockStyle.Fill,
                 SizeMode = PictureBoxSizeMode.Zoom,
                 BackColor = Color.Transparent,
-                Margin = new Padding(0, 2, 0, 2)
+                Margin = new Padding(0, 2, 0, 2),
+                TabStop = false
             };
             TryLoadIconInto(iconBox, slot);
 
@@ -199,7 +206,8 @@ namespace ShortcutNest
                 Font = new Font("Segoe UI", 10.5f, FontStyle.Bold),
                 TextAlign = ContentAlignment.TopCenter,
                 Text = slot?.Title is { Length: > 0 } ? $"{index + 1}. {slot.Title}" : $"{index + 1}. (empty)",
-                Margin = new Padding(0, 4, 0, 0)
+                Margin = new Padding(0, 4, 0, 0),
+                TabStop = false
             };
 
             layout.Controls.Add(iconBox, 0, 0);
@@ -317,10 +325,15 @@ namespace ShortcutNest
                     case "command":
                         if (!string.IsNullOrWhiteSpace(slot.Target))
                         {
+                            // Check if the command appears to be PowerShell
+                            bool isPowerShell = slot.Target.Contains('$') || slot.Target.Contains('[') || slot.Target.Contains('{');
+
                             Process.Start(new ProcessStartInfo
                             {
-                                FileName = "cmd.exe",
-                                Arguments = "/c " + slot.Target,
+                                FileName = isPowerShell ? "powershell.exe" : "cmd.exe",
+                                Arguments = isPowerShell
+                                    ? $"-NoProfile -NoExit -Command \"{slot.Target}\""
+                                    : $"/C \"{slot.Target}\"",
                                 UseShellExecute = false,
                                 CreateNoWindow = true
                             });
@@ -521,6 +534,17 @@ namespace ShortcutNest
                 }
             }
             base.Dispose(disposing);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_ACTIVATE = 0x0006;
+            if (m.Msg == WM_ACTIVATE && m.WParam == IntPtr.Zero)
+            {
+                // Deactivated
+                HidePopup();
+            }
+            base.WndProc(ref m);
         }
     }
 }
