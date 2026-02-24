@@ -227,9 +227,11 @@ bin\Release\net8.0-windows\win-x64\publish\
 - The current release uses **simple mode** (a new process starts on each key press).
 - This keeps the app behavior predictable and easy to deploy.
 - Depending on your machine, you may notice a small delay when opening the popup (~1 second).
+- When closing the popup, the ESCape key is much quicker on closing then just pressing the Copilot key again.
 - A future **resident mode** may improve responsiveness significantly, but it is not included in the current release due to reliability/UX issues in testing.
 - On some PCs, the Copilot key is intercepted by Windows/OEM drivers and cannot be captured directly by normal app hotkeys. PowerToys remapping is the intended workaround.
 - This project is **Windows-only** (if this ends up being useful to a lot of people, I may do a **MAC version**).
+- **THERE ARE CURRENTLY SOME PROBLEMS REGARDING WINDOWS PRIORITIZING OTHER PROGRAMS OVER THE POPUP (such as Chrome or VSCode)(I am working on fixing it)!**
 
 ---
 
@@ -253,3 +255,4 @@ BSD 3-Clause License — Copyright (c) 2026 João Oliveira
 
 
 See the [LICENSE](LICENSE) file for full text.
+
