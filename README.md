@@ -8,12 +8,12 @@ It opens a clean **3x3 launcher popup** with up to **9 customizable slots**. It'
 
 ## Why I built this
 
-I built ShortcutNest because I wanted a **simple, fast, personal popup launcher** triggered by a single key (in my case, the **Copilot key**), but I never found exactly what I wanted:
+I built ShortcutNest because I wanted a **simple, fast, personal popup launcher** triggered by a single key. I wanted it to be the **Copilot key**, but because the **Copilot key** is a combination of keys in itself, I couldn't just fuse it with other keys to create new shortcuts, so I ended up never findig anything that would:
 
-- not a full command launcher
-- not a heavy app switcher
-- not a complicated macro tool
-- just a clean popup with **my shortcuts**, always in the same place
+- not be a full command launcher;
+- not be a heavy app switcher;
+- not be a complicated macro tool;
+- just be a clean popup with **my shortcuts**, always in the same place.
 
 So I made it.
 
@@ -255,4 +255,5 @@ BSD 3-Clause License — Copyright (c) 2026 João Oliveira
 
 
 See the [LICENSE](LICENSE) file for full text.
+
 
